@@ -25,7 +25,15 @@
   	}
   }],
   "provisioners": [{
-     "type": "shell",
-     "script": "script.sh"
-   }]
+    "type": "shell",
+    "inline":["sudo apt-get install apache2 htop -y"]
+  },{
+    "type": "shell",
+    "inline":["rm -rf /var/www/html/index.html"]
+  },{
+  "type": "file",
+  "source": "index.html",
+  "destination": "/var/www/html/index.html"
+  }
+ ]
 }
